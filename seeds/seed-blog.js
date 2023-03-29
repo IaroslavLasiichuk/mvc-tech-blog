@@ -3,11 +3,11 @@ const { Blog } = require('../models');
 const blogData = [
     {
         blog_title: "Node JS",
-        blog_content: "JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm, single-threaded, dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles."
+        blog_content: "JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat.",
     },
     {
         blog_title: "JavaScript",
-        blog_content: "As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications. In the following hello world example, many connections can be handled concurrently."
+        blog_content: "JavaScript is the world's most popular programming language. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications. In the following hello world example, many connections can be handled concurrently."
     },
     {
         blog_title: "HTML",
@@ -20,6 +20,10 @@ const blogData = [
     {
         blog_title: "Bootstrap",
         blog_content: "Bootstrap is a free, open source front-end development framework for the creation of websites and web apps. Designed to enable responsive development of mobile-first websites, Bootstrap provides a collection of syntax for template designs."
+    },
+    {
+        blog_title: "React",
+        blog_content: "React is a free and open-source front-end JavaScript library[3] for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companiesBootstrap is a free."
     },
 ];
 const seedBlogData = () => Blog.bulkCreate(blogData);
