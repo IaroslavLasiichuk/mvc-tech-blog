@@ -1,0 +1,17 @@
+<div class="bbb">
+  <div class="aaa">
+    <!-- Below we are rendering the name of one dish using a Handlebars.js expression -->
+   {{#each blogs as |blog|}}
+    <div class="dish col-md-5">
+      <!-- We use dish.id instead of <od> and <li> elements. -->
+      <p>
+        {{blog.id}}.
+        {{blog.blog_title}}
+      </p>
+    </div>
+    <div class="col-md-7">
+      <p></p>
+    </div>
+  {{/each}}
+  </div>
+</div>
