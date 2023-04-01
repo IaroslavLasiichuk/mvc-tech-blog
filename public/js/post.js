@@ -1,19 +1,18 @@
 const newPost = async(event) => {
     event.preventDefault();
-  const title = document.querySelector('#post-title').value.trim();
-  const content = document.querySelector('#content').value.trim();
+  const blog_title = document.querySelector('#post-title').value.trim();
+  const blog_content = document.querySelector('#content').value.trim();
 
 
-  if (title, content) {
-      console.log(title);
+  if (blog_title, blog_content) {
+      console.log(blog_title);
       const response = await fetch(`/dashboard`, {
         method: 'POST',
-        body: JSON.stringify({ title, content}),
+        body: JSON.stringify({ blog_title, blog_content}),
         headers: {
           'Content-Type': 'application/json',
         },
       });
-    console.log(response);
       if (response.ok) {
         document.location.replace('/home');
       } else {
