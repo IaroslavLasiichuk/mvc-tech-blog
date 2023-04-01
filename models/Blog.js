@@ -19,8 +19,8 @@ Blog.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        filename: {
-            type: DataTypes.STRING,
+        blog_created: {
+            type: DataTypes.TEXT,
             allowNull: false,
         },
     },

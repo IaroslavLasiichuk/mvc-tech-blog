@@ -4,32 +4,32 @@ const blogData = [
     {
         blog_title: "Node JS",
         blog_content: "JavaScript (JS) is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat.",
-        filename: "nodejs_logo.png",
+        blog_created: "Sat Apr 01 2021 11:10:08 AM"
     },
     {
         blog_title: "JavaScript",
         blog_content: "JavaScript is the world's most popular programming language. As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications. In the following hello world example, many connections can be handled concurrently.",
-        filename: "js_logo.jpeg",
+        blog_created: "Sun Jan 13 2021 1:10:08 AM"
     },
     {
         blog_title: "HTML",
         blog_content: "The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser. It is often assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.",
-        filename: "html_css_logo.jpeg",
+        blog_created: "Mon Feb 28 2020 09:10:08 PM"
     },
     {
         blog_title: "CSS",
         blog_content: "Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML (including XML dialects such as SVG, MathML or XHTML). CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.",
-        filename: "js_logo.jpeg",
+        blog_created: "Tue May 21 2021 08:10:08 PM",
     },
     {
         blog_title: "Bootstrap",
         blog_content: "Bootstrap is a free, open source front-end development framework for the creation of websites and web apps. Designed to enable responsive development of mobile-first websites, Bootstrap provides a collection of syntax for template designs.",
-        filename: "html_css_logo.jpeg",
+        blog_created: "Fri Oct 12 2021 4:10:08 AM",
     },
     {
         blog_title: "React",
         blog_content: "React is a free and open-source front-end JavaScript library[3] for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companiesBootstrap is a free.",
-        filename: "react_logo.svg",
+        blog_created: "Thu Sep 11 2023 5:10:08 AM",
     },
 ];
 const seedBlogData = () => Blog.bulkCreate(blogData);
