@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Blog } = require('../../models');
 // Dashboard  route
 router.get('/', async (req, res) => {
   try {
@@ -7,5 +8,16 @@ router.get('/', async (req, res) => {
    return  res.status(500).json(err);
   }
 });
+
+router.post('/', async(req, res) => {
+  try {
+    const newBlog = await Blog.create(req.body);
+    console.log(res.status(200).json(newBlog));
+    console.log(req.body)
+    res.status(200).json(newBlog);
+  } catch (error) {
+    res.status(400).json(error); 
+  }
+})
 
 module.exports = router;

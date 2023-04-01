@@ -20,8 +20,9 @@ Blog.init(
             allowNull: false,
         },
         blog_created: {
-            type: DataTypes.TEXT,
+            type: DataTypes.DATE,
             allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
     },
     {
