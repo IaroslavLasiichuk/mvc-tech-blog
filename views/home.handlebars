@@ -10,11 +10,12 @@
   <div class="card-footer text-body-secondary">
     {{blog.blog_created}}
   </div>
-     <button class="btn btn-secondary mt-3">Add Comment</button>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write a comment...">{{dbComment}} </textarea>
+     <button class="btn btn-comment-{{blog.id}} btn-secondary mt-3" data-id="{{blog.id}}">Add Comment</button>
 </div>
   {{/each}} 
        <footer class="bg-dark text-white">
     <div class="container-fluid py-3 text-center">
             <div class=" text-center small align-item-end">©{{format_date}} Iaroslav Lasiichuk, Inc.</div>
     </div>
-    </footer>
+      <script src="/js/comment.js"></script>

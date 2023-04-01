@@ -10,6 +10,17 @@ router.get('/', async (req, res) => {
     } catch (err) {
      return  res.status(500).json(err);
     }
+});
+  
+router.post('/:id', async (req, res) => {
+    try {
+      const dbComment = await Comment.create({
+        comment: req.body.comment,
+      });
+      res.status(200).json(dbComment);
+    } catch (err) {
+      res.status(500).json(err);
+    }
   });
 
 module.exports = router;
