@@ -6,9 +6,10 @@ router.get('/', async (req, res) => {
     try {
       const dbBLogData = await Blog.findAll();
       const blogs= dbBLogData.map((blog) => blog.get({ plain: true }));
-    res.render('dashboard', { blogs });
+     return res.render('home', { blogs });
     } catch (err) {
      return  res.status(500).json(err);
     }
   });
+
 module.exports = router;
