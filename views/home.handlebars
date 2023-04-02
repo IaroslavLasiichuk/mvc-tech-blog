@@ -6,15 +6,13 @@
   <div class="card-body">
     <h5 class="card-title">{{blog.blog_title}}</h5>
     <p class="card-text">{{blog.blog_content}}</p>
-     <a class="nav-link text-dark" href="/edit/{{blog.id}}">Edit post</a>
+<a class="nav-link text-dark" href="/edit/{{blog.id}}">Edit post</a>
   </div>
   <div class="card-footer text-body-secondary">
     {{blog.blog_created}}
   </div>
- 
 </div>
   {{/each}} 
-
        <footer class="bg-dark text-white">
     <div class="container-fluid py-3 text-center">
             <div class=" text-center small align-item-end">©{{format_date}} Iaroslav Lasiichuk, Inc.</div>
