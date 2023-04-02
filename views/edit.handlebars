@@ -1,21 +1,18 @@
-
 <div class="container">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5">{{blog_title}}</h1>
-      </div>
-      <div class="modal-body">
-    {{blog.blog_content}}
-      </div>
-      <div class="modal-footer">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write a comment..."></textarea>
-        <button type="button" class="btn btn-primary m-3" data-bs-dismiss="modal">Add Comment</button>
-        <button type="button" class="btn btn-danger m-3">Delete Post</button>
-      </div>
-    </div>
+<div class="card text-center m-4">
+  <div class="card-header">
+ {{blog_title}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{blog_title}}</h5>
+    <p class="card-text">{{blog_content}}</p>
+  </div>
+  <div class="card-footer text-body-secondary">
+    {{blog_created}}
+  </div>
+   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write a comment..."></textarea>
+ <button type="button" class="btn btn-primary m-2" data-bs-dismiss="modal">Add Comment</button>
+  <button type="button" class="btn btn-danger m-2">Delete Post</button>
 </div>
 
-
-
-
+</div>
