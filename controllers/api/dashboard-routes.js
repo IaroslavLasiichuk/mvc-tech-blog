@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async(req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newBlog = await Blog.create({
       ...req.body,
@@ -17,9 +17,9 @@ router.post('/', async(req, res) => {
     console.log(req.body)
     res.status(200).json(newBlog);
   } catch (error) {
-    res.status(400).json(error); 
+    res.status(400).json(error);
   }
-})
+});
 
 
 module.exports = router;
