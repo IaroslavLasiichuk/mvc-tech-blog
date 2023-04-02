@@ -1,2 +1,3 @@
 const Blog = require('./Blog');
-module.exports = { Blog };
+const Comment = require('./Comment');
+module.exports = { Blog, Comment };
