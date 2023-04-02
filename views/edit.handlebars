@@ -10,9 +10,17 @@
   <div class="card-footer text-body-secondary">
     {{blog_created}}
   </div>
+ <label for="exampleFormControlInput1" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="post-title"
+        placeholder="Title"
+      />
    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Edit post..."></textarea>
- <button type="button" class="btn btn-primary m-2" data-id="{{id}}">Edit</button>
- <button type="button" class="btn btn-danger m-2" data-id="{{id}}">Delete</button>
+ <button type="button" class="btn btn-primary btn-edit m-2" data-edit="{{id}}">Edit</button>
+ <button type="button" class="btn btn-danger btn-delete m-2" data-delete="{{id}}">Delete</button>
 </div>
 </div>
 <script src="/js/delete.js"></script>
+<script src="/js/comment.js"></script>
