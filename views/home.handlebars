@@ -6,28 +6,7 @@
   <div class="card-body">
     <h5 class="card-title">{{blog.blog_title}}</h5>
     <p class="card-text">{{blog.blog_content}}</p>
-  <a class="nav-link text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" href="/edit/{{blog.id}}">
-  Edit post</a>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">{{blog.blog_title}}</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-    {{blog.blog_content}}
-      </div>
-      <div class="modal-footer">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write a comment..."></textarea>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Add Comment</button>
-        <button type="button" class="btn btn-danger">Delete Post</button>
-      </div>
-    </div>
-  </div>
-</div>
+     <a class="nav-link text-dark" href="/edit/{{blog.id}}">Edit post</a>
   </div>
   <div class="card-footer text-body-secondary">
     {{blog.blog_created}}
@@ -35,6 +14,7 @@
  
 </div>
   {{/each}} 
+
        <footer class="bg-dark text-white">
     <div class="container-fluid py-3 text-center">
             <div class=" text-center small align-item-end">©{{format_date}} Iaroslav Lasiichuk, Inc.</div>

@@ -1,23 +1,21 @@
- {{!-- <div class="modal" tabindex="-1">
+
+<div class="container">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">{{blogs.blog_title}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5">{{blog_title}}</h1>
       </div>
       <div class="modal-body">
-<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write a comment..."></textarea>
+    {{blog.blog_content}}
       </div>
       <div class="modal-footer">
-         <button class="btn btn-comment-{{blog.id}} btn-secondary mt-3" data-id="{{blog.id}}">Add Comment</button>
-     <button class="btn btn-comment-{{blog.id}} btn-danger mt-3" data-id="{{blog.id}}">Delete</button>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write a comment..."></textarea>
+        <button type="button" class="btn btn-primary m-3" data-bs-dismiss="modal">Add Comment</button>
+        <button type="button" class="btn btn-danger m-3">Delete Post</button>
       </div>
     </div>
-  </div>
-</div> --}}
+</div>
 
 
 
 
- 
-    {{!-- <script src="/js/model.js"></script> --}}
