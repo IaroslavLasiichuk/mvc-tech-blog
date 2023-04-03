@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Blog } = require("../../models");
+const { Comment } = require('../../models');
 
 // GET posts from blog by ID
 router.get("/:id", async (req, res) => {
@@ -33,7 +34,7 @@ router.delete('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-//  Update a category by id
+//  Update a blog by id
 router.put('/:id', async (req, res) => {
   try {
     const blogData = await Blog.update(req.body, {
@@ -50,16 +51,17 @@ router.put('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-// router.post('/:id', async (req, res) => {
-//   try {
-//     const newBlog = await Blog.create({
-//       ...req.body,
-//     });
-//     res.status(200).json(newBlog);
-//   } catch (error) {
-//     res.status(400).json(error);
-//   }
-// });
+
+router.post('/:id', async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      ...req.body,
+    });
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 
 module.exports = router;

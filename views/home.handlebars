@@ -1,20 +1,24 @@
- {{#each blogs as |blog|}}
-<div class="card text-center m-4">
-  <div class="card-header">
- {{blog.blog_title}}
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">{{blog.blog_title}}</h5>
-    <p class="card-text">{{blog.blog_content}}</p>
-<a class="nav-link text-dark" href="/edit/{{blog.id}}">Edit post</a>
-  </div>
-  <div class="card-footer text-body-secondary">
-  Created on: {{blog.blog_created}}
-  </div>
-</div>
-  {{/each}} 
-       <footer class="bg-dark text-white">
-    <div class="container-fluid py-3 text-center">
-            <div class=" text-center small align-item-end">©{{format_date}} Iaroslav Lasiichuk, Inc.</div>
+{{#each blogs as |blog|}}
+  <div class="card text-center m-4">
+    <div class="card-header">
+      {{blog.blog_title}}
     </div>
-      <script src="/js/delete.js"></script>
+    <div class="card-body">
+      <h5 class="card-title">{{blog.blog_title}}</h5>
+      <p class="card-text">{{blog.blog_content}}</p>
+      <a class="nav-link text-dark" href="/edit/{{blog.id}}">Edit post</a>
+    </div>
+    <div class="card-footer text-body-secondary">
+      Created on: {{blog.blog_created}}
+    </div>
+
+  <div class="card card-body">
+       <div id="comment-list-{{id}}"></div>
+    </div>
+  </div>
+{{/each}}
+<footer class="bg-dark text-white">
+  <div class="container-fluid py-3 text-center">
+    <div class=" text-center small align-item-end">©{{format_date}} Iaroslav Lasiichuk, Inc.</div>
+  </div>
+<script src="/js/edit.js"></script>
