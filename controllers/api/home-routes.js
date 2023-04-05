@@ -26,6 +26,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+
 // router.post('/', async (req, res) => {
 //   try {
 //     const newComment = await Comment.create({
@@ -36,5 +37,7 @@ router.post('/', async (req, res) => {
 //     res.status(500).json({ error: err.message });
 //   }
 // });
+
+
 
 module.exports = router;

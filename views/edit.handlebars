@@ -7,6 +7,12 @@
     <h5 class="card-title">{{blog_title}}</h5>
     <p class="card-text">{{blog_content}}</p>
   </div>
+ <div class="card card-body">
+       <div id="comment-list-{{id}}">
+        {{comment}}
+       </div>
+    </div>
+
   <div class="card-footer text-body-secondary">
     {{blog_created}}
   </div>
@@ -15,6 +21,7 @@
    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Edit post..."></textarea>
  <button type="button" class="btn btn-primary btn-edit m-2" data-edit="{{id}}">Edit</button>
  <button type="button" class="btn btn-danger btn-delete m-2" data-delete="{{id}}">Delete</button>
+ <button type="button" class="btn btn-success btn-comment m-2" data-comment="{{id}}">Add Comment</button>
 </div>
 <h2 class="text-center">Add comment</h2>
  <div class="card card-body">
@@ -24,6 +31,5 @@
     <a class="btn btn-success btn-comment m-2" data-comment="{{id}}">Add Comment</a>
 </div>
 
+
 <script src="/js/edit.js"></script>
-
-

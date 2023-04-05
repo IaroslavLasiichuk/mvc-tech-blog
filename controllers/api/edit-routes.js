@@ -58,8 +58,11 @@ router.post('/:id', async (req, res) => {
       ...req.body,
     });
     res.status(200).json(newComment);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+
+  }  catch (error) {
+    res.status(400).json(error);
+    console.error(error);
+
   }
 });
 
