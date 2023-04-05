@@ -44,8 +44,11 @@ const editPost = async (event) => {
 };
 
 
+
 document.querySelector('.btn-edit').addEventListener('click', editPost);
 
+
+document.querySelector('.btn-edit').addEventListener('click', editPost);
   // Delete post
 
 const deletePost = async (event) => {
@@ -69,6 +72,18 @@ deleteButton.addEventListener('click', deletePost);
 
 
 document.querySelector('.btn-edit').addEventListener('click', editPost);
+
+// Add comments
+// const commentBtns = document.querySelectorAll('.btn-comment');
+// commentBtns.forEach((btn) => {
+//   btn.addEventListener('click', async () => {
+//     const id = btn.getAttribute('data-comment');
+//     const comment = document.querySelector(`#comment-${id}`).value;
+//     console.log(id);
+=======
+
+document.querySelector('.btn-edit').addEventListener('click', editPost);
+
 
 const addComment = async (event) => {
   if (event.target.hasAttribute('data-comment')) {

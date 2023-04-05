@@ -1,4 +1,3 @@
-
 // document.querySelector('.btn-comment').addEventListener('click', newComment);
   
 // const addCommentButtons = document.querySelectorAll('.btn-comment');
