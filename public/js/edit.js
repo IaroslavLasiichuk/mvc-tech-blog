@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// Update post
->>>>>>> 87a89501e8a5d0be23edd295e335539cf7c458bd
 const editPost = async (event) => {
   const blog_title = document.querySelector('#post-title').value;
   const blog_content = document.querySelector('#exampleFormControlTextarea1').value;
@@ -23,13 +19,9 @@ const editPost = async (event) => {
       }
     }
 };
-<<<<<<< HEAD
-  
-=======
-document.querySelector('.btn-edit').addEventListener('click', editPost);
 
+document.querySelector('.btn-edit').addEventListener('click', editPost);
   // Delete post
->>>>>>> 87a89501e8a5d0be23edd295e335539cf7c458bd
 const deletePost = async (event) => {
   if (event.target.hasAttribute('data-delete')) {
     const id = event.target.getAttribute('data-delete');
@@ -49,9 +41,8 @@ if (deleteButton !== null) {
 deleteButton.addEventListener('click', deletePost);
 }  
 
-<<<<<<< HEAD
 document.querySelector('.btn-edit').addEventListener('click', editPost);
-=======
+
 // Add comments
 // const commentBtns = document.querySelectorAll('.btn-comment');
 // commentBtns.forEach((btn) => {
@@ -112,4 +103,4 @@ const addComment = async (event) => {
 };
 
 document.querySelector('.btn-comment').addEventListener('click', addComment);
->>>>>>> 87a89501e8a5d0be23edd295e335539cf7c458bd
+
