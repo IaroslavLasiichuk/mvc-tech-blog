@@ -8,38 +8,19 @@
       <p class="card-text">{{blog.blog_content}}</p>
       <a class="btn btn-primary" href="/edit/{{blog.id}}">Edit post</a>
     </div>
-    
     <div class="card-footer text-body-secondary">
       Created on: {{blog.blog_created}}
     </div>
-
-
     <div class="card card-body">
        <div id="comment-list-{{blog.id}}"></div>
-      <textarea class="form-control add-comment"  id="comment-{{blog.id}}" rows="3" placeholder="Add comment..."></textarea>
     </div>
   
-    <a class="btn btn-success btn-comment m-2" data-comment="{{blog.id}}">
-      Add Comment
-    </a>
- 
-
-  <div class="card card-body">
-       <div id="comment-list-{{id}}"></div>
-    </div>
-
-
   </div>
 {{/each}}
 <footer class="bg-dark text-white">
   <div class="container-fluid py-3 text-center">
     <div class=" text-center small align-item-end">©{{format_date}} Iaroslav Lasiichuk, Inc.</div>
   </div>
-
-
-
-
-<script src="/js/comment.js"></script>
 
 <script src="/js/edit.js"></script>
 

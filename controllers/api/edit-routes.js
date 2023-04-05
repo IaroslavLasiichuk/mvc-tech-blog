@@ -52,19 +52,16 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.post('/:id', async (req, res) => {
-  try {
-    const newComment = await Comment.create({
-      ...req.body,
-    });
-    res.status(200).json(newComment);
-
-  }  catch (error) {
-    res.status(400).json(error);
-    console.error(error);
-
-  }
-});
+// router.post('/:id', async (req, res) => {
+//   try {
+//     const newComment = await Comment.create({
+//       ...req.body,
+//     });
+//     res.status(200).json(newComment);
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// });
 
 
 module.exports = router;
