@@ -1,16 +1,17 @@
+document.addEventListener('DOMContentLoaded', () => {
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  const email = document.querySelector('#login').value.trim();
+  const email = document.querySelector('#email').value.trim();
   const password = document.querySelector('#password').value.trim();
-
+console.log(email);
   if (email && password) {
       const response = await fetch('/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+console.log('Works');
     if (response.ok) {
       document.location.replace('/');
     } else {
@@ -19,9 +20,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
@@ -38,10 +37,14 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/edit');
     } else {
       alert('Failed to sign up.');
     }
   }
 };
+document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+});

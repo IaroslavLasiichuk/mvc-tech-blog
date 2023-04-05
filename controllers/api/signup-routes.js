@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 });
 
 // CREATE new user
-router.post('/signup', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const userData = await User.create({
       username: req.body.username,
@@ -23,7 +23,7 @@ router.post('/signup', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
 
-      res.status(200).json(dbUserData);
+      res.status(200).json(userData);
     });
   } catch (err) {
     console.log(err);
