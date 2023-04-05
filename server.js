@@ -1,13 +1,33 @@
 const express = require('express');
 const path = require('path');
 const routes = require('./controllers');
+const session = require('express-session');
 const exphbs = require('express-handlebars');
 const sequelize = require('./config/connection');
 const helpers = require('./utilis/helpers');
-const hbs = exphbs.create({helpers });
+const app = express();
+const hbs = exphbs.create({ helpers });
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // Import sequelize connection
 
-const app = express();
+const sess = {
+  secret: process.env.SECRET,
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+app.use(session(sess));
+
+
+
 const PORT = process.env.PORT || 3005;
 
 app.engine('handlebars', hbs.engine);
