@@ -1,6 +1,3 @@
-// const newComment = async (event) => {
-
-// };
 
 // document.querySelector('.btn-comment').addEventListener('click', newComment);
   
@@ -31,30 +28,30 @@
   
 //   });
 // });
-const commentBtns = document.querySelectorAll('.btn-comment');
+// const commentBtns = document.querySelectorAll('.btn-comment');
 
-commentBtns.forEach((btn) => {
-  btn.addEventListener('click', async () => {
-    const id = btn.getAttribute('data-comment');
-    const comment = document.querySelector(`#comment-${id}`).value;
+// commentBtns.forEach((btn) => {
+//   btn.addEventListener('click', async () => {
+//     const id = btn.getAttribute('data-comment');
+//     const comment = document.querySelector(`#comment-${id}`).value;
 
-    try {
-      const response = await fetch('/home', {
-        method: 'POST',
-        body: JSON.stringify({id, comment}),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-console.log(response);
-      const newComment = await response.json();
-      const commentList = document.querySelector(`#comment-list-${id}`);
-      const commentEl = document.createElement('p');
-      commentEl.textContent = newComment.comment;
-      commentList.appendChild(commentEl);
-      comment.value = '';
-    } catch (error) {
-      console.error(error);
-    }
-  });
-});
+//     try {
+//       const response = await fetch('/home', {
+//         method: 'POST',
+//         body: JSON.stringify({id, comment}),
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//       });
+// console.log(response);
+//       const newComment = await response.json();
+//       const commentList = document.querySelector(`#comment-list-${id}`);
+//       const commentEl = document.createElement('p');
+//       commentEl.textContent = newComment.comment;
+//       commentList.appendChild(commentEl);
+//       comment.value = '';
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   });
+// });
