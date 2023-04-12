@@ -1,7 +1,16 @@
 const router = require("express").Router();
 const { Blog } = require("../../models");
 const { Comment } = require('../../models');
+const withAuth = require('../../utilis/auth');
 
+// Dashboard  route
+router.get('/', async (req, res) => {
+  try {
+  res.render('edit');
+  } catch (err) {
+   return  res.status(500).json(err);
+  }
+});
 // GET posts from blog by ID
 router.get("/:id", async (req, res) => {
   try {
