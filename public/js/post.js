@@ -6,7 +6,7 @@ const newPost = async(event) => {
 
   if (blog_title, blog_content) {
       console.log(blog_title);
-      const response = await fetch(`/dashboard`, {
+      const response = await fetch(`api/dashboard`, {
         method: 'POST',
         body: JSON.stringify({ blog_title, blog_content}),
         headers: {
@@ -14,7 +14,7 @@ const newPost = async(event) => {
         },
       });
       if (response.ok) {
-        document.location.replace('/home');
+        document.location.replace('/');
       } else {
         alert('Failed to create project');
       }

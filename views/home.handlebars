@@ -6,9 +6,9 @@
     <div class="card-body">
       <h5 class="card-title">{{blog.blog_title}}</h5>
       <p class="card-text">{{blog.blog_content}}</p>
-        {{#if logged_in}}
+       {{!-- {{#if logged_in}} --}}
       <a class="btn btn-primary" href="/edit/{{blog.id}}">Edit post</a>
-      {{/if}}
+      {{!-- {{/if}} --}}
     </div>
     <div class="card-footer text-body-secondary">
       Created on: {{blog.blog_created}}
@@ -19,6 +19,8 @@
   
   </div>
 {{/each}}
+
+  
 <footer class="bg-dark text-white">
   <div class="container-fluid py-3 text-center">
     <div class=" text-center small align-item-end">©{{format_date}} Iaroslav Lasiichuk, Inc.</div>
