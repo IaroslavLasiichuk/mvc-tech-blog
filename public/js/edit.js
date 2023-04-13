@@ -1,3 +1,56 @@
+const addComment = async (event) => {
+  if (event.target.hasAttribute('data-comment')) {
+    const id = event.target.getAttribute('data-comment');
+    console.log(id);
+    const comment = document.querySelector(`#comment-${id}`).value;
+    console.log(comment);
+    const response = await fetch(`/home/${id}`, {
+      method: 'POST',
+      body: JSON.stringify({id, comment}),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    console.log(response);
+    const newComment = await response.json();
+    const commentList = document.querySelector(`#comment-list-${id}`);
+    const commentEl = document.createElement('p');
+    commentEl.textContent = newComment.comment;
+    commentList.appendChild(commentEl);
+    comment.value = '';
+  }
+  // if (response.ok) {
+  //   document.location.replace('/home');
+  // } else {
+  //   alert('Failed to delete post');
+  // }
+};
+  document.querySelector('.btn-comment').addEventListener('click', addComment);
+
+
+
+
+// const deletePost = async (event) => {
+//   if (event.target.hasAttribute('data-delete')) {
+//     const id = event.target.getAttribute('data-delete');
+//     const response = await fetch(`/edit/${id}`, {
+//       method: 'DELETE',
+//     });
+//     if (response.ok) {
+//       document.location.replace('/home');
+//     } else {
+//       alert('Failed to delete post');
+//     }
+//   }
+// };
+
+// const deleteButton = document.querySelector('.btn-delete');
+// if (deleteButton !== null) {
+// deleteButton.addEventListener('click', deletePost);
+// } 
+
+
+
 // document.addEventListener('DOMContentLoaded', () => {
 // const editPost = async (event) => {
 //   const blog_title = document.querySelector('#post-title').value;
