@@ -1,3 +1,4 @@
+<div class="container justify-content-center">
 {{#each blogs as |blog|}}
   <div class="card text-center m-4">
     <div class="card-header">
@@ -6,25 +7,21 @@
     <div class="card-body">
       <h5 class="card-title">{{blog.blog_title}}</h5>
       <p class="card-text">{{blog.blog_content}}</p>
-       {{!-- {{#if logged_in}} --}}
-      <a class="btn btn-primary" href="/edit/{{blog.id}}">Edit post</a>
-      {{!-- {{/if}} --}}
     </div>
     <div class="card-footer text-body-secondary">
       Created on: {{blog.blog_created}}
     </div>
     <div class="card card-body">
+      <textarea name="comment" id="text-{{blog.id}}" cols="30" rows="3"></textarea>
        <div id="comment-list-{{blog.id}}"></div>
     </div>
-  
   </div>
+   <button class="btn btn-primary mt-2" data-comment="{{blog.id}}">Comment</button>
 {{/each}}
-
-  
+</div>
 <footer class="bg-dark text-white">
   <div class="container-fluid py-3 text-center">
     <div class=" text-center small align-item-end">©{{format_date}} Iaroslav Lasiichuk, Inc.</div>
   </div>
-
 <script src="/js/edit.js"></script>
 
