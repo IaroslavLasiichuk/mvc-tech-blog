@@ -4,7 +4,15 @@ const { Blog, User } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    const dbBLogData = await Blog.findAll();
+    const dbBLogData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    }
+    );
     const blogs = dbBLogData.map((blog) => blog.get({ plain: true }));
     // Serialize data so the template can read it
       res.render('home', {
@@ -50,7 +58,6 @@ router.get('/login', (req, res) => {
     res.redirect('/dashboard');
     return;
   }
-
   res.render('log');
 });
 // router.get('/edit', async (req, res) => {
