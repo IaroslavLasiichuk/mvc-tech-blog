@@ -1,24 +1,25 @@
 <div class="container">
-<div class="card text-center m-4">
-  <div class="card-header">
- {{blog_title}}
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">{{blog_title}}</h5>
-    <p class="card-text">{{blog_content}}</p>
-  </div>
-  <div class="card-footer text-body-secondary">
-    {{blog_created}}
-  </div>
-   <div class="card card-body">
-       <div id="comment-list-{{ id}}"></div>
+  <div class="card text-center m-4">
+    <div class="card-header">
+      <h1>{{username}}!!!</h1>
+      <div class="card card-body">
+        <h5>Comments</h5>
+        {{#each comments}}
+          <p>{{this.comment}}</p>
+        {{/each}}
+      </div>
+      {{blog_title}}
     </div>
- <label for="exampleFormControlInput1" class="form-label">Title</label>
-      <input type="text" class="form-control" id="post-title" placeholder="Title"/>
-   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Edit post..."></textarea>
- <button type="button" class="btn btn-primary btn-edit m-2" data-edit="{{id}}">Edit</button>
- <button type="button" class="btn btn-danger btn-delete m-2" data-delete="{{id}}">Delete</button>
- <textarea class="form-control add-comment"  id="comment-{{id}}" rows="3" placeholder="Add comment..."></textarea>
- <button type="button" class="btn btn-success btn-comment m-2" data-comment="{{id}}">Add comment</button>
-
-<script src="/js/edit.js"></script>
+    <div class="card-body">
+      <h5 class="card-title">{{blog_title}}</h5>
+      <p class="card-text">{{blog_content}}</p>
+    </div>
+    <div class="card-footer text-body-secondary">
+      Post created by {{username}} {{blog_created}}
+    </div>
+    <div class="card card-body">
+      <div id="comment-list-{{id}}"></div>
+    </div>
+    <textarea class="form-control" id="comment-{{id}}" rows="3" placeholder="Write a comment..."></textarea>
+    <button type="button" class="btn btn-primary btn-comment m-2" data-comment="{{id}}">Add comment</button>
+    <script src="/js/edit.js"></script>

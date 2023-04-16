@@ -1,26 +1,27 @@
+{{!-- Home page --}}
 <div class="container justify-content-center">
-{{#each blogs as |blog|}}
-  <div class="card text-center m-4">
-    <div class="card-header">
-      {{blog.blog_title}}
+  {{#each blogs as |blog|}}
+    <div class="card text-center m-4">
+      <div class="card-header">
+        {{blog.blog_title}}
+      </div>
+      <div class="card-body">
+        <h2>
+          <a href="/edit/{{blog.id}}">{{blog.blog_title}}</a>
+        </h2>
+        <p class="card-text">{{blog.blog_content}}</p>
+      </div>
+      <div class="card-footer text-body-secondary">
+        <li>{{blog.comment.comment}}</li>
+        Created by {{blog.user.username}} on: {{blog.blog_created}}
+      </div>
+      <div class="card card-body">
+      </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">{{blog.blog_title}}</h5>
-      <p class="card-text">{{blog.blog_content}}</p>
-      
-    </div>
-    <div class="card-footer text-body-secondary">
-
-      Created by {{user.username}} on: {{blog.blog_created}}
-    </div>
-    <div class="card card-body">  
-    </div>
-  </div>
-{{/each}}
+  {{/each}}
 </div>
 <footer class="bg-dark text-white">
   <div class="container-fluid py-3 text-center">
     <div class=" text-center small align-item-end">©{{format_date}} Iaroslav Lasiichuk, Inc.</div>
   </div>
-<script src="/js/edit.js"></script>
-
+  <script src="/js/edit.js"></script>

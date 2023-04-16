@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Blog } = require("../../models");
+const { Blog, Comment } = require("../../models");
 const withAuth = require('../../utilis/auth');
 
 // Create a new post.
@@ -8,6 +8,7 @@ router.post('/', withAuth, async (req, res) => {
       const newPost = await Blog.create({
         ...req.body,
         user_id: req.session.user_id,
+        blog_id: req.params.blog_id
       });
   
       res.status(200).json(newPost);
@@ -15,7 +16,7 @@ router.post('/', withAuth, async (req, res) => {
       res.status(400).json(err);
     }
 });
-// // GET posts from blog by ID
+
 // router.get("/:id", async (req, res) => {
 //   try {
 //     const blogData = await Blog.findByPk(req.params.id, {});

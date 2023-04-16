@@ -1,28 +1,18 @@
 <div class="container">
   <h1>welcome,{{username}}</h1>
   <h3 class="text-center">Create New Post</h3>
-  
   <form class="post-form">
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Title</label>
-      <input
-        type="text"
-        class="form-control"
-        id="post-title"
-        placeholder="Title"
-      />
+      <input type="text" class="form-control" id="post-title" placeholder="Title" />
     </div>
     <div class="mb-3">
-      <label
-        for="exampleFormControlTextarea1"
-        class="form-label"
-      >Content</label>
+      <label for="exampleFormControlTextarea1" class="form-label">Content</label>
       <textarea class="form-control" id="content" rows="3"></textarea>
     </div>
     <button class="btn btn-create-post btn-primary" type="submit">Create NewPost</button>
   </form>
 </div>
-
 <footer class="bg-dark text-white fixed-bottom">
   <div class="container-fluid py-3 text-center">
     <div class="text-center small align-item-end">©{{format_date}}

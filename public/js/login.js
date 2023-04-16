@@ -1,3 +1,4 @@
+// Log in
 document.addEventListener('DOMContentLoaded', () => {
   const loginFormHandler = async (event) => {
     event.preventDefault();
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loginForm.addEventListener('submit', loginFormHandler);
   }
 
+  // Sign up
   const signupFormHandler = async (event) => {
     event.preventDefault();
 
