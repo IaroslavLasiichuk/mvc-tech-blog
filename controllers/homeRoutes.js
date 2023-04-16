@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const withAuth = require('../utilis/auth');
-const { Blog, User } = require('../models');
+const { Blog, User, Comment } = require('../models');
 
+// Get all blogs
 router.get('/', async (req, res) => {
   try {
     const dbBLogData = await Blog.findAll({
@@ -10,19 +11,28 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['username'],
         },
+        {
+          model: Comment,
+          attributes: ['comment'],
+        },
+       
       ],
+    
     }
     );
+    // const comment = commentData.get({ plain: true });
     const blogs = dbBLogData.map((blog) => blog.get({ plain: true }));
     // Serialize data so the template can read it
       res.render('home', {
-      blogs,
+        blogs,
+        // comment,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
    return  res.status(500).json(err);
   }
 });
+
 
 //  Use withAuth middleware to prevent access to dashboard page
 router.get('/dashboard',withAuth, async (req, res) => {
@@ -42,6 +52,53 @@ router.get('/dashboard',withAuth, async (req, res) => {
   }
 });
 
+router.post('/edit/:id', async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      user_id: req.session.user_id,
+      ...req.body,
+    });
+    res.status(200).json(newComment);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+router.get('/edit/:id', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+    });
+    const projectData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+        {
+          model: Comment,
+          attributes: ['comment'],
+        },
+      ],
+    });
+    const user = userData.get({ plain: true });
+    const project = projectData.get({ plain: true });
+    // const comment = commentData.get({ plain: true });
+
+    res.render('edit', {
+      ...user,
+      ...project,
+      // ...comment,
+      logged_in: true,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 // GET sign up page
 router.get('/signup', async (req, res) => {
@@ -60,12 +117,5 @@ router.get('/login', (req, res) => {
   }
   res.render('log');
 });
-// router.get('/edit', async (req, res) => {
-//   try {
-//   res.render('edit');
-//   } catch (err) {
-//    return  res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;
