@@ -11,28 +11,19 @@ router.get('/', async (req, res) => {
           model: User,
           attributes: ['username'],
         },
-        {
-          model: Comment,
-          attributes: ['comment'],
-        },
-       
       ],
-    
     }
     );
-    // const comment = commentData.get({ plain: true });
     const blogs = dbBLogData.map((blog) => blog.get({ plain: true }));
     // Serialize data so the template can read it
       res.render('home', {
         blogs,
-        // comment,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
    return  res.status(500).json(err);
   }
 });
-
 
 //  Use withAuth middleware to prevent access to dashboard page
 router.get('/dashboard',withAuth, async (req, res) => {
@@ -51,7 +42,7 @@ router.get('/dashboard',withAuth, async (req, res) => {
  res.status(500).json(err);
   }
 });
-
+// Creates new comment
 router.post('/edit/:id', async (req, res) => {
   try {
     const newComment = await Comment.create({
@@ -64,13 +55,13 @@ router.post('/edit/:id', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
+// Get comment by id of user
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
     });
-    const projectData = await Blog.findByPk(req.params.id, {
+    const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -78,18 +69,15 @@ router.get('/edit/:id', withAuth, async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['comment'],
+          attributes: ['comment','created_at','id'],
         },
       ],
     });
     const user = userData.get({ plain: true });
-    const project = projectData.get({ plain: true });
-    // const comment = commentData.get({ plain: true });
-
+    const blogs = blogData.get({ plain: true });
     res.render('edit', {
       ...user,
-      ...project,
-      // ...comment,
+      ...blogs,
       logged_in: true,
       logged_in: req.session.logged_in
     });
@@ -97,8 +85,6 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
 
 // GET sign up page
 router.get('/signup', async (req, res) => {

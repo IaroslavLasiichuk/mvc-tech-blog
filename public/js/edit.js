@@ -11,7 +11,7 @@ const addComment = async (event, blogId) => {
       }
     });
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace(`/edit/${id}`);
     } else {
       alert('Failed to comment post');
     }
@@ -22,45 +22,3 @@ document.querySelectorAll('.btn-comment').forEach(button => {
   const blogId = button.getAttribute('data-comment');
   button.addEventListener('click', event => addComment(event, blogId));
 });
-
-
-// const deletePost = async (event) => {
-//   if (event.target.hasAttribute('data-delete')) {
-//     const id = event.target.getAttribute('data-delete');
-//     const response = await fetch(`/edit/${id}`, {
-//       method: 'DELETE',
-//     });
-//     if (response.ok) {
-//       document.location.replace('/home');
-//     } else {
-//       alert('Failed to delete post');
-//     }
-//   }
-// };
-
-// const deleteButton = document.querySelector('.btn-delete');
-// if (deleteButton !== null) {
-// deleteButton.addEventListener('click', deletePost);
-// } 
-
-// Delete post
-// const deletePost = async (event) => {
-//   if (event.target.hasAttribute('data-delete')) {
-//     const id = event.target.getAttribute('data-delete');
-//     const response = await fetch(`/edit/${id}`, {
-//       method: 'DELETE',
-//     });
-//     if (response.ok) {
-//       document.location.replace('/home');
-//     } else {
-//       alert('Failed to delete post');
-//     }
-//   }
-// };
-
-// const deleteButton = document.querySelector('.btn-delete');
-// if (deleteButton !== null) {
-// deleteButton.addEventListener('click', deletePost);
-// }  
-
-// document.querySelector('.btn-edit').addEventListener('click', editPost);
