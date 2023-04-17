@@ -1,3 +1,4 @@
+// Logout
 document.addEventListener('DOMContentLoaded', () => {
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
